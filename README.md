@@ -106,3 +106,5 @@ products:
 ## Additional comments
 
 You can use the regular `toggle` field option `text` which can either be `on/off` or `yes/no`. The value is the same: `true` or `false`.
+
+Fields with `required` set to `true` will be required, even if they're hidden.
