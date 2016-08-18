@@ -61,7 +61,7 @@ The `fieldtoggle` field works in structure fields, too.
 
 ![Structure](structure.gif?raw=true)
 
-This time we're setting the `default` to `false`, just as we would in a normal `toggle` field. Also, we're addressing five different fields. This way we can either display a specific contact person or a general phone number.
+This time we're setting the `default` to `false`, just as we would in a normal `toggle` field. Also, we're addressing four different fields. This way we can either display a specific contact person or a general phone number.
 
 ````
 products:
@@ -84,7 +84,7 @@ products:
     contactperson:
       label:       Specific contact person
       type:        fieldtoggle
-      on:          contactname position portrait phone
+      on:          contactname position phone
       off:         generalphone
       default:     false
     contactname:
