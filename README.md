@@ -108,3 +108,5 @@ products:
 You can use the regular `toggle` field option `text` which can either be `on/off` or `yes/no`. The value is the same: `true` or `false`.
 
 Fields with `required` set to `true` will be required, even if they're hidden.
+
+As of version 2.3, Kirby converts every field name to lowercase in the panel. There's no differentiation between `fieldName` and `fieldname`. Thanks to LCD344 for testing that.

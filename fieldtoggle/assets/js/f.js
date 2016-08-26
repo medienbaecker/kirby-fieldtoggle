@@ -7,14 +7,14 @@ $(document).ready(function(){
       var field = $(this).parent();
 
       if (field.data("off")) {
-        var off = field.data("off").split(" ");
+        var off = field.data("off").toLowerCase().split(" ");
       }
       else {
         var off = [];
       }
 
       if (field.data("on")) {
-        var on = field.data("on").split(" ");
+        var on = field.data("on").toLowerCase().split(" ");
       }
       else {
         var on = [];
