@@ -6,6 +6,10 @@ This field lets panel users toggle the visibility of other fields.
 
 Simply put the `fieldtoggle` folder into your `site/fields` folder.
 
+## Coming from Fieldtoggle v1
+
+If you installed version 1 of the fieldtoggle, some things have changed. The toggle field is no longer the foundation, but rather the radio field. That enables you to use custom labels and more than two toggles. You will have to update the blueprint after updating.
+
 ## Examples
 
 ### Image field
