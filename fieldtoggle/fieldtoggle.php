@@ -1,7 +1,7 @@
 <?php
 
-class FieldToggleField extends ToggleField {
-          
+class FieldToggleField extends RadioField {
+
   // Get JS and CSS files from the assets folder
   static public $assets = array(
     'js' => array(
@@ -11,18 +11,32 @@ class FieldToggleField extends ToggleField {
       'style.css'
     )
   );
-  
+
   // Add information to the field data so we can access it with JavaScript
   public function item($value, $text) {
     $item = parent::item($value, $text);
     $item->addClass('fieldtoggle');
+
     if (isset($this->on)) {
-      $item->data('on',$this->on);
+      foreach ($this->on as $okey => $ovalue) {
+        if ($value == $okey) {
+          $item->data("on", $ovalue);
+        }
+      }
     }
+
     if (isset($this->off)) {
-      $item->data('off',$this->off);
+      foreach ($this->off as $okey => $ovalue) {
+        if ($value == $okey) {
+          $item->data("off", $okey);
+        }
+      }
     }
+
+
+
+
     return $item;
   }
-  
+
 }

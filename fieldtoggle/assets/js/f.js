@@ -2,25 +2,27 @@ $(document).ready(function(){
 
   function fieldtoggle() {
 
-    $(".fieldtoggle input:checked").each(function() {
+    $(".fieldtoggle input").each(function() {
 
       var field = $(this).parent();
 
       if (field.data("off")) {
-        var off = field.data("off").toLowerCase().split(" ");
+        var off = field.data("off").split(" ");
       }
       else {
         var off = [];
       }
 
       if (field.data("on")) {
-        var on = field.data("on").toLowerCase().split(" ");
+        var on = field.data("on").split(" ");
       }
       else {
         var on = [];
       }
 
-      if ( $(this).attr("value") == "true" ) {
+      if ($(this).is(":checked")) {
+        console.log(off);
+        console.log(on);
         $.each(off, function(key, value) {
           $(".field-name-" + value).closest(".field").hide();
         });
@@ -28,14 +30,15 @@ $(document).ready(function(){
           $(".field-name-" + value).closest(".field").show();
         });
       }
-
-      else if ($(this).attr("value") == "false") {
-       $.each(off, function(key, value) {
+      else {
+        console.log(off);
+        console.log(on);
+        $.each(off, function(key, value) {
          $(".field-name-" + value).closest(".field").show();
-       });
-       $.each(on, function(key, value) {
+        });
+        $.each(on, function(key, value) {
          $(".field-name-" + value).closest(".field").hide();
-       });
+        });
       }
 
     });
