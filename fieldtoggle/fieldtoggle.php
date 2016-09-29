@@ -17,18 +17,18 @@ class FieldToggleField extends RadioField {
     $item = parent::item($value, $text);
     $item->addClass('fieldtoggle');
 
-    if (isset($this->on)) {
-      foreach ($this->on as $okey => $ovalue) {
+    if (isset($this->show)) {
+      foreach ($this->show as $okey => $ovalue) {
         if ($value == $okey) {
-          $item->data("on", $ovalue);
+          $item->data("show", $ovalue);
         }
       }
     }
 
-    if (isset($this->off)) {
-      foreach ($this->off as $okey => $ovalue) {
+    if (isset($this->hide)) {
+      foreach ($this->hide as $okey => $ovalue) {
         if ($value == $okey) {
-          $item->data("off", $okey);
+          $item->data("hide", $okey);
         }
       }
     }

@@ -6,37 +6,33 @@ $(document).ready(function(){
 
       var field = $(this).parent();
 
-      if (field.data("off")) {
-        var off = field.data("off").split(" ");
+      if (field.data("hide")) {
+        var hide = field.data("hide").split(" ");
       }
       else {
-        var off = [];
+        var hide = [];
       }
 
-      if (field.data("on")) {
-        var on = field.data("on").split(" ");
+      if (field.data("show")) {
+        var show = field.data("show").split(" ");
       }
       else {
-        var on = [];
+        var show = [];
       }
 
       if ($(this).is(":checked")) {
-        console.log(off);
-        console.log(on);
-        $.each(off, function(key, value) {
+        $.each(hide, function(key, value) {
           $(".field-name-" + value).closest(".field").hide();
         });
-        $.each(on, function(key, value) {
+        $.each(show, function(key, value) {
           $(".field-name-" + value).closest(".field").show();
         });
       }
       else {
-        console.log(off);
-        console.log(on);
-        $.each(off, function(key, value) {
+        $.each(hide, function(key, value) {
          $(".field-name-" + value).closest(".field").show();
         });
-        $.each(on, function(key, value) {
+        $.each(show, function(key, value) {
          $(".field-name-" + value).closest(".field").hide();
         });
       }
