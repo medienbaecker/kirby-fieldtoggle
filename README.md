@@ -1,4 +1,4 @@
-# Kirby Fieldtoggle
+# Kirby Fieldtoggle v2
 
 This field lets panel users toggle the visibility of other fields.
 
