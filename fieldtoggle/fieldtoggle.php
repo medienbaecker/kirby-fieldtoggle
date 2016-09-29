@@ -14,6 +14,7 @@ class FieldToggleField extends RadioField {
 
   // Add information to the field data so we can access it with JavaScript
   public function item($value, $text) {
+
     $item = parent::item($value, $text);
     $item->addClass('fieldtoggle');
 
@@ -28,13 +29,10 @@ class FieldToggleField extends RadioField {
     if (isset($this->hide)) {
       foreach ($this->hide as $okey => $ovalue) {
         if ($value == $okey) {
-          $item->data("hide", $okey);
+          $item->data("hide", $ovalue);
         }
       }
     }
-
-
-
 
     return $item;
   }

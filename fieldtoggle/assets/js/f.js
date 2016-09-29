@@ -3,7 +3,7 @@ $(document).ready(function(){
   function fieldtoggle() {
 
     $(".fieldtoggle input").each(function() {
-
+      var fieldtoggle = $(this).closest("div.field");
       var field = $(this).parent();
 
       if (field.data("hide")) {
@@ -30,10 +30,12 @@ $(document).ready(function(){
       }
       else {
         $.each(hide, function(key, value) {
-         $(".field-name-" + value).closest(".field").show();
+          if (!fieldtoggle.find('.fieldtoggle[data-hide="' + value + '"] input:checked').length) {
+            $(".field-name-" + value).closest(".field").show();
+          }
         });
         $.each(show, function(key, value) {
-         $(".field-name-" + value).closest(".field").hide();
+          $(".field-name-" + value).closest(".field").hide();
         });
       }
 
