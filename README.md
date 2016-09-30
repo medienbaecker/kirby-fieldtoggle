@@ -19,7 +19,7 @@ In this very simple example we're toggling the visibility of a single field.
 ![Show image](showimage.gif?raw=true)
 
 We can  use whatever number of options we want. For this example we'll stick with `yes` and `no`, though. Setting the options works exactly as it would with a regular radio field.
-In the additional `show` key, we can show fields for any of the defined options. In this case we want to show the field `imagefield` when `yes` is active. Fields that are in a `show` list of an option are automatically hidden when this option is not active.
+In the additional `show` and `hide` lists, we can show or hide fields for any of the defined options. In this case we want to show the field `imagefield` when `yes` is active and hide it when `no` is active.
 
 ````
 imagetoggle:
@@ -30,6 +30,8 @@ imagetoggle:
     no:        "No"
   show:
     yes:       imagefield
+  hide:
+    no:        imagefield
 imagefield:
   label:       Image
   type:        image
@@ -41,7 +43,7 @@ This use case is a little more complex, but also more reasonable.
 
 ![Multiple Days](multidays.gif?raw=true)
 
-This time we'll do the exact same thing, but show multiple fields at the same time. When `Multiple days` is activated, both `start` and `end` are shown. When `Single day` is activated, only `day` is visible.
+This time we'll do the exact same thing, but show or hide multiple fields at the same time. When `Multiple days` is activated, both `start` and `end` are shown. When `Single day` is activated, only `day` is visible and `start` and `end` are hidden.
 
 ````
 eventtype:
@@ -53,6 +55,9 @@ eventtype:
   show:
     multidays: start end
     singleday: day
+  hide:
+    multidays: day
+    singleday: start end
 day:
   label:       Day
   type:        date
@@ -116,8 +121,11 @@ products:
         service:      date employee
         food:         bestbefore
       hide:
-        digital:      shipping
-        service:      shipping
+        digital:      shipping species diet start end date employee bestbefore
+        animal:       filesize start end date employee bestbefore
+        subscription: shipping filesize  species diet date employee bestbefore
+        service:      shipping filesize  species diet start end employee bestbefore
+        food:         shipping filesize  species diet start end date
 
     shipping:
       label:          Shipping cost
