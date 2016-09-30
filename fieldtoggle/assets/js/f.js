@@ -35,7 +35,9 @@ $(document).ready(function(){
           }
         });
         $.each(show, function(key, value) {
+          if (!fieldtoggle.find('.fieldtoggle[data-show="' + value + '"] input:checked').length) {
           $(".field-name-" + value).closest(".field").hide();
+        }
         });
       }
 
