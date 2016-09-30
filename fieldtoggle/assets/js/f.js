@@ -2,7 +2,7 @@ $(document).ready(function(){
 
   function fieldtoggle() {
 
-    $(".fieldtoggle input").each(function() {
+    $($(".fieldtoggle input").get().reverse()).each(function() {
       var fieldtoggle = $(this).closest("div.field");
       var field = $(this).parent();
 
@@ -26,18 +26,6 @@ $(document).ready(function(){
         });
         $.each(show, function(key, value) {
           $(".field-name-" + value).closest(".field").show();
-        });
-      }
-      else {
-        $.each(hide, function(key, value) {
-          if (!fieldtoggle.find('.fieldtoggle[data-hide="' + value + '"] input:checked').length) {
-            $(".field-name-" + value).closest(".field").show();
-          }
-        });
-        $.each(show, function(key, value) {
-          if (!fieldtoggle.find('.fieldtoggle[data-show="' + value + '"] input:checked').length) {
-          $(".field-name-" + value).closest(".field").hide();
-        }
         });
       }
 
