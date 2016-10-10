@@ -4,7 +4,7 @@ This field lets panel users toggle the visibility of other fields.
 
 ## Installation
 
-Simply put the `fieldtoggle` folder into your `site/fields` folder.
+Simply put the `fieldtoggle` folder into your `site/fields` folder. Create the folder if you don't have one.
 
 ## Coming from Fieldtoggle v1
 
