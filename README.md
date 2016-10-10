@@ -173,6 +173,8 @@ products:
 
 ## Additional comments
 
-Fields with `required` set to `true` will be required, even if they're hidden.
+Fields with `required` set to `true` will be required, even if they're hidden. I added a localized warning for this case in version 2.1
+
+![Required warning](required.gif?raw=true)
 
 As of version 2.3, Kirby converts every field name to lowercase in the panel. There's no differentiation between `fieldName` and `fieldname`. Thanks to LCD344 for testing that.
