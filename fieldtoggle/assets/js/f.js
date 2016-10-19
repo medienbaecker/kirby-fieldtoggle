@@ -2,6 +2,30 @@ $(document).ready(function(){
 
   function fieldtoggle() {
 
+
+    function toggleoff(f, ft) {
+      if (ft.find("label.fieldtoggle").data("keepvisible")) {
+        f.addClass("field-is-readonly");
+        f.find(".input").addClass("input-is-readonly");
+      }
+      else {
+        f.hide();
+      }
+
+    }
+
+    function toggleon(f, ft) {
+      if (ft.find("label.fieldtoggle").data("keepvisible")) {
+        f.removeClass("field-is-readonly");
+        f.find(".input").removeClass("input-is-readonly");
+      }
+      else {
+        f.show();
+      }
+    }
+
+    requiredfield = 0;
+
     $($(".fieldtoggle input").get().reverse()).each(function() {
       var fieldtoggle = $(this).closest("div.field");
       var field = $(this).parent();
@@ -22,34 +46,53 @@ $(document).ready(function(){
 
       if ($(this).is(":checked")) {
         $.each(hide, function(key, value) {
-          $(".field-name-" + value).closest(".field").hide();
+
+          var ziel = $(".field-name-" + value).closest(".field");
+
+          if (ziel.find($('abbr[title="Required"]')).length) {
+            requiredfield = field.text();
+          }
+
+          toggleoff(ziel, fieldtoggle);
+
         });
         $.each(show, function(key, value) {
-          $(".field-name-" + value).closest(".field").show();
+          toggleon($(".field-name-" + value).closest(".field"), fieldtoggle);
         });
+
       }
-      // else {
-      //   $.each(hide, function(key, value) {
-      //     if (!fieldtoggle.find('.fieldtoggle[data-hide="' + value + '"] input:checked').length) {
-      //       $(".field-name-" + value).closest(".field").show();
-      //     }
-      //   });
-      //   $.each(show, function(key, value) {
-      //     if (!fieldtoggle.find('.fieldtoggle[data-show="' + value + '"] input:checked').length) {
-      //       $(".field-name-" + value).closest(".field").hide();
-      //     }
-      //   });
-      // }
 
     });
+
+    if (requiredfield != 0) {
+      requiredHidden1 = $(".field span.l10n").data("required-hidden1");
+      requiredHidden2 = $(".field span.l10n").data("required-hidden2");
+      text = requiredHidden1 + ' "' + requiredfield + '" ' +  requiredHidden2;
+      if ($("header.topbar .message-required").length) {
+        $("header.topbar .message-required .message-content").html(text);
+      }
+      else {
+        $("header.topbar").append('<div class="message message-is-alert message-required"><span class="message-content">' + text + '</span><a class="message-toggle"><i>×</i></a></div>');
+      }
+    }
+    else {
+      $("header.topbar .message-required").remove();
+    }
 
   }
 
   fieldtoggle();
 
-  $("body").on("change", ".fieldtoggle input", function() {
-    fieldtoggle();
+  $("body").on("change", ".fieldtoggle input", function(event) {
+    if ($(event.target).is(':checked')) {
+      fieldtoggle();
+    }
   });
+
+  $("body").on("click", ".message-required .message-toggle", function() {
+    $(".message-required").remove();
+    return false;
+  })
 
 
   $(document).ajaxComplete(function() {
