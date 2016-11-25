@@ -2,6 +2,28 @@ $(document).ready(function(){
 
   function fieldtoggle() {
 
+
+    function toggleoff(f, ft) {
+      if (ft.find("label.fieldtoggle").data("keepvisible")) {
+        f.addClass("field-is-readonly");
+        f.find(".input").addClass("input-is-readonly");
+      }
+      else {
+        f.hide();
+      }
+
+    }
+
+    function toggleon(f, ft) {
+      if (ft.find("label.fieldtoggle").data("keepvisible")) {
+        f.removeClass("field-is-readonly");
+        f.find(".input").removeClass("input-is-readonly");
+      }
+      else {
+        f.show();
+      }
+    }
+
     requiredfield = 0;
 
     $($(".fieldtoggle input").get().reverse()).each(function() {
@@ -31,11 +53,11 @@ $(document).ready(function(){
             requiredfield = field.text();
           }
 
-          ziel.hide();
+          toggleoff(ziel, fieldtoggle);
 
         });
         $.each(show, function(key, value) {
-          $(".field-name-" + value).closest(".field").show();
+          toggleon($(".field-name-" + value).closest(".field"), fieldtoggle);
         });
 
       }

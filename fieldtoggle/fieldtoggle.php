@@ -58,6 +58,10 @@ class FieldToggleField extends RadioField {
         }
       }
     }
+    if (isset($this->keepvisible) && $this->keepvisible == "true") {
+      $item->data("keepvisible", "true");
+    }
+
 
     return $item;
 
