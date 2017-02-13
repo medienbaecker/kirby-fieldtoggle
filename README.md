@@ -1,10 +1,10 @@
-# Kirby Fieldtoggle v2.2
+# Kirby Fieldtoggle v2.3
 
 This field lets panel users toggle the visibility of other fields.
 
 ## Installation
 
-Simply put the `fieldtoggle` folder into your `site/fields` folder. Create the folder if you don't have one.
+Simply put the folder into your `site/fields` folder and rename it to "fieldtoggle". Create the folder if you don't have one. You can also install it via the Kirby CLI.
 
 ## Coming from Fieldtoggle v1
 
