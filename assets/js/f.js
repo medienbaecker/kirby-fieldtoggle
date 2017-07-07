@@ -82,6 +82,10 @@ $(document).ready(function(){
   }
 
   fieldtoggle();
+  
+  $(document).ajaxComplete(function() {
+    fieldtoggle();
+  });
 
   $("body").on("change", ".fieldtoggle input", function(event) {
     if ($(event.target).is(':checked')) {
@@ -93,10 +97,5 @@ $(document).ready(function(){
     $(".message-required").remove();
     return false;
   })
-
-
-  $(document).ajaxComplete(function() {
-    fieldtoggle();
-  });
 
 });
