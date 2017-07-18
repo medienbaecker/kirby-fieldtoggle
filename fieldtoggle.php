@@ -46,7 +46,7 @@ class FieldToggleField extends RadioField {
     if (isset($this->show)) {
       foreach ($this->show as $okey => $ovalue) {
         if ($value == $okey) {
-          $item->data("show", $ovalue);
+          $item->data("show", strtolower($ovalue));
         }
       }
     }
@@ -54,7 +54,7 @@ class FieldToggleField extends RadioField {
     if (isset($this->hide)) {
       foreach ($this->hide as $okey => $ovalue) {
         if ($value == $okey) {
-          $item->data("hide", $ovalue);
+          $item->data("hide", strtolower($ovalue));
         }
       }
     }

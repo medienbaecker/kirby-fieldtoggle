@@ -1,4 +1,4 @@
-# Kirby Fieldtoggle v2.4 <a href="https://www.paypal.me/medienbaecker"><img width="99" src="http://www.medienbaecker.com/beer.png" alt="Buy me a beer" align="right"></a>
+# Kirby Fieldtoggle v2.5 <a href="https://www.paypal.me/medienbaecker"><img width="99" src="http://www.medienbaecker.com/beer.png" alt="Buy me a beer" align="right"></a>
 
 This field lets panel users toggle the visibility of other fields.
 
