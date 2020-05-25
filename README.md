@@ -1,4 +1,6 @@
-# Kirby Fieldtoggle v2.5 <a href="https://www.paypal.me/medienbaecker"><img width="99" src="http://www.medienbaecker.com/beer.png" alt="Buy me a beer" align="right"></a>
+This plugin for Kirby 2 is no longer maintained. It is now part of the Kirby 3 core: https://getkirby.com/docs/guide/blueprints/fields#conditional-fields
+
+# Kirby Fieldtoggle v2.5
 
 This field lets panel users toggle the visibility of other fields.
 
